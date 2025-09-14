@@ -8,7 +8,7 @@ export default function HomePage() {
       minHeight: "100vh",
       fontFamily: "Arial, sans-serif"
     }}>
-      <h1>í¼ HealthBridge - Global Health Journal</h1>
+      <h1>ğŸŒ HealthBridge - Global Health Journal</h1>
       <p>AI-Powered Health Analysis â€¢ Multi-Language Support</p>
       <div style={{ 
         backgroundColor: "#2a2a2a", 
