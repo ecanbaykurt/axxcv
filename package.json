@@ -1,0 +1,14 @@
+{
+  "name": "healthbridge-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd webapp && npm run build",
+    "start": "cd webapp && npm start",
+    "dev": "cd webapp && npm run dev",
+    "install": "cd webapp && npm install"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

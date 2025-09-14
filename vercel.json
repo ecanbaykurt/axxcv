@@ -3,7 +3,10 @@
   "builds": [
     {
       "src": "webapp/package.json",
-      "use": "@vercel/next"
+      "use": "@vercel/next",
+      "config": {
+        "distDir": ".next"
+      }
     }
   ],
   "routes": [
@@ -11,13 +14,5 @@
       "src": "/(.*)",
       "dest": "webapp/$1"
     }
-  ],
-  "functions": {
-    "webapp/app/api/**/*.ts": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "env": {
-    "OPENAI_API_KEY": "@openai_api_key"
-  }
+  ]
 }
