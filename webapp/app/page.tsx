@@ -183,4 +183,4 @@ export default function HomePage() {
       </div>
     </main>
   );
-}
+}console.log("HealthBridge deployment test - $(date)")
