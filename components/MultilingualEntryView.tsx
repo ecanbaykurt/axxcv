@@ -541,7 +541,7 @@ export default function MultilingualEntryView({
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Describe your symptoms in your native language. Include details about severity, duration, location, and any other relevant information..."
-              className="w-full h-32 p-4 glass rounded-2xl text-white placeholder-white/50 resize-none focus:outline-none focus:ring-2 focus:ring-green-500/50"
+              className="w-full h-32 p-4 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl text-white placeholder-white/50 resize-none focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50"
               disabled={isProcessing}
             />
             <div className="absolute bottom-3 right-3 text-sm text-white/50">

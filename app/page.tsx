@@ -4,10 +4,13 @@ import { useState, useEffect } from 'react';
 import LandingView from '../components/LandingView';
 import EntryView from '../components/EntryView';
 import MultilingualEntryView from '../components/MultilingualEntryView';
+import QuickEntryView from '../components/QuickEntryView';
+import DailyCheckinView from '../components/DailyCheckinView';
 import ResultsView from '../components/ResultsView';
 import DashboardView from '../components/DashboardView';
 import PatternView from '../components/PatternView';
 import ExportView from '../components/ExportView';
+import ProfileView from '../components/ProfileView';
 import { AppState, HealthEntry, AIHealthResponse } from '../types/health';
 
 export default function HomePage() {
@@ -48,6 +51,14 @@ export default function HomePage() {
     setAppState(useMultilingualMode ? AppState.ENTRY : AppState.ENTRY);
   };
 
+  const navigateToQuickEntry = () => {
+    setAppState(AppState.QUICK_ENTRY);
+  };
+
+  const navigateToDailyCheckin = () => {
+    setAppState(AppState.DAILY_CHECKIN);
+  };
+
   const navigateToResults = (analysis: AIHealthResponse) => {
     setCurrentAnalysis(analysis);
     setAppState(AppState.RESULTS);
@@ -65,13 +76,20 @@ export default function HomePage() {
     setAppState(AppState.PATTERNS);
   };
 
+  const navigateToProfile = () => {
+    setAppState(AppState.PROFILE);
+  };
+
   const navigateBack = () => {
     switch (appState) {
       case AppState.ENTRY:
+      case AppState.QUICK_ENTRY:
+      case AppState.DAILY_CHECKIN:
       case AppState.RESULTS:
       case AppState.EXPORT:
       case AppState.DASHBOARD:
       case AppState.PATTERNS:
+      case AppState.PROFILE:
         setAppState(AppState.LANDING);
         break;
       default:
@@ -81,6 +99,15 @@ export default function HomePage() {
 
   const addHealthEntry = (entry: HealthEntry) => {
     setHealthEntries(prev => [entry, ...prev]);
+  };
+
+  const addMockEntries = (entries: HealthEntry[]) => {
+    setHealthEntries(prev => [...entries, ...prev]);
+  };
+
+  const clearAllEntries = () => {
+    setHealthEntries([]);
+    localStorage.removeItem('healthEntries');
   };
 
   const toggleMultilingualMode = () => {
@@ -93,10 +120,16 @@ export default function HomePage() {
         return (
           <LandingView
             onStartEntry={navigateToEntry}
+            onQuickEntry={navigateToQuickEntry}
+            onDailyCheckin={navigateToDailyCheckin}
             onViewDashboard={navigateToDashboard}
+            onViewProfile={navigateToProfile}
             hasEntries={healthEntries.length > 0}
             useMultilingualMode={useMultilingualMode}
             onToggleMultilingual={toggleMultilingualMode}
+            onAddMockEntries={addMockEntries}
+            onClearAllEntries={clearAllEntries}
+            entryCount={healthEntries.length}
           />
         );
       
@@ -118,6 +151,24 @@ export default function HomePage() {
             />
           );
         }
+      
+      case AppState.QUICK_ENTRY:
+        return (
+          <QuickEntryView
+            onNavigateBack={navigateBack}
+            onAnalyzeComplete={navigateToResults}
+            onAddEntry={addHealthEntry}
+          />
+        );
+      
+      case AppState.DAILY_CHECKIN:
+        return (
+          <DailyCheckinView
+            onNavigateBack={navigateBack}
+            onAnalyzeComplete={navigateToResults}
+            onAddEntry={addHealthEntry}
+          />
+        );
       
       case AppState.RESULTS:
         return (
@@ -155,14 +206,28 @@ export default function HomePage() {
           />
         );
       
+      case AppState.PROFILE:
+        return (
+          <ProfileView
+            onNavigateBack={navigateBack}
+            healthEntries={healthEntries}
+          />
+        );
+      
       default:
         return (
           <LandingView
             onStartEntry={navigateToEntry}
+            onQuickEntry={navigateToQuickEntry}
+            onDailyCheckin={navigateToDailyCheckin}
             onViewDashboard={navigateToDashboard}
+            onViewProfile={navigateToProfile}
             hasEntries={healthEntries.length > 0}
             useMultilingualMode={useMultilingualMode}
             onToggleMultilingual={toggleMultilingualMode}
+            onAddMockEntries={addMockEntries}
+            onClearAllEntries={clearAllEntries}
+            entryCount={healthEntries.length}
           />
         );
     }

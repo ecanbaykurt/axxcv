@@ -416,7 +416,7 @@ export default function EntryView({ onNavigateBack, onAnalyzeComplete, onAddEntr
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Describe your symptoms in detail. Include information about severity, duration, location, and any other relevant details..."
-              className="w-full h-32 p-4 glass rounded-2xl text-white placeholder-white/50 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+              className="w-full h-32 p-4 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl text-white placeholder-white/50 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50"
               disabled={isProcessing}
             />
             <div className="absolute bottom-3 right-3 text-sm text-white/50">

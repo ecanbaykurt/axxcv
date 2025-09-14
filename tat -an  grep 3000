@@ -1,0 +1,5 @@
+[33madc2a679[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Enhance HealthBridge for medical-grade functionality: Add pain scale, mood tracking, outbreak data, and improved AI analysis with ICD-10 codes and triage guidance
+[33ma8b501ba[m Fix Vercel deployment: Add root package.json and update vercel.json configuration
+[33m46055114[m Initial commit: HealthBridge app with Vercel deployment configuration
+[33m4495191e[m Fix UTF-8 encoding issue - clean emoji characters
+[33m63c39d22[m Fix encoding issue - create simple working page

@@ -215,10 +215,13 @@ export interface GPTChoice {
 export enum AppState {
   LANDING = 'landing',
   ENTRY = 'entry',
+  QUICK_ENTRY = 'quick_entry',
+  DAILY_CHECKIN = 'daily_checkin',
   RESULTS = 'results',
   EXPORT = 'export',
   DASHBOARD = 'dashboard',
-  PATTERNS = 'patterns'
+  PATTERNS = 'patterns',
+  PROFILE = 'profile'
 }
 
 export enum RecordingState {
