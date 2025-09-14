@@ -11,6 +11,8 @@ import DashboardView from '../components/DashboardView';
 import PatternView from '../components/PatternView';
 import ExportView from '../components/ExportView';
 import ProfileView from '../components/ProfileView';
+import DemoPresentationView from '../components/DemoPresentationView';
+import PersonalHealthJourneyView from '../components/PersonalHealthJourneyView';
 import { AppState, HealthEntry, AIHealthResponse } from '../types/health';
 
 export default function HomePage() {
@@ -80,6 +82,14 @@ export default function HomePage() {
     setAppState(AppState.PROFILE);
   };
 
+  const navigateToDemoPresentation = () => {
+    setAppState(AppState.DEMO_PRESENTATION);
+  };
+
+  const navigateToPersonalHealthJourney = () => {
+    setAppState(AppState.PERSONAL_HEALTH_JOURNEY);
+  };
+
   const navigateBack = () => {
     switch (appState) {
       case AppState.ENTRY:
@@ -90,6 +100,8 @@ export default function HomePage() {
       case AppState.DASHBOARD:
       case AppState.PATTERNS:
       case AppState.PROFILE:
+      case AppState.DEMO_PRESENTATION:
+      case AppState.PERSONAL_HEALTH_JOURNEY:
         setAppState(AppState.LANDING);
         break;
       default:
@@ -124,6 +136,8 @@ export default function HomePage() {
             onDailyCheckin={navigateToDailyCheckin}
             onViewDashboard={navigateToDashboard}
             onViewProfile={navigateToProfile}
+            onViewDemoPresentation={navigateToDemoPresentation}
+            onViewPersonalHealthJourney={navigateToPersonalHealthJourney}
             hasEntries={healthEntries.length > 0}
             useMultilingualMode={useMultilingualMode}
             onToggleMultilingual={toggleMultilingualMode}
@@ -214,6 +228,20 @@ export default function HomePage() {
           />
         );
       
+      case AppState.DEMO_PRESENTATION:
+        return (
+          <DemoPresentationView
+            onNavigateBack={navigateBack}
+          />
+        );
+      
+      case AppState.PERSONAL_HEALTH_JOURNEY:
+        return (
+          <PersonalHealthJourneyView
+            onNavigateBack={navigateBack}
+          />
+        );
+      
       default:
         return (
           <LandingView
@@ -222,6 +250,8 @@ export default function HomePage() {
             onDailyCheckin={navigateToDailyCheckin}
             onViewDashboard={navigateToDashboard}
             onViewProfile={navigateToProfile}
+            onViewDemoPresentation={navigateToDemoPresentation}
+            onViewPersonalHealthJourney={navigateToPersonalHealthJourney}
             hasEntries={healthEntries.length > 0}
             useMultilingualMode={useMultilingualMode}
             onToggleMultilingual={toggleMultilingualMode}

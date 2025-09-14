@@ -12,6 +12,8 @@ interface LandingViewProps {
   onDailyCheckin: () => void;
   onViewDashboard: () => void;
   onViewProfile: () => void;
+  onViewDemoPresentation: () => void;
+  onViewPersonalHealthJourney: () => void;
   hasEntries: boolean;
   useMultilingualMode: boolean;
   onToggleMultilingual: () => void;
@@ -20,7 +22,7 @@ interface LandingViewProps {
   entryCount: number;
 }
 
-export default function LandingView({ onStartEntry, onQuickEntry, onDailyCheckin, onViewDashboard, onViewProfile, hasEntries, useMultilingualMode, onToggleMultilingual, onAddMockEntries, onClearAllEntries, entryCount }: LandingViewProps) {
+export default function LandingView({ onStartEntry, onQuickEntry, onDailyCheckin, onViewDashboard, onViewProfile, onViewDemoPresentation, onViewPersonalHealthJourney, hasEntries, useMultilingualMode, onToggleMultilingual, onAddMockEntries, onClearAllEntries, entryCount }: LandingViewProps) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
 
@@ -216,6 +218,34 @@ export default function LandingView({ onStartEntry, onQuickEntry, onDailyCheckin
             </motion.button>
           </>
         )}
+
+        {/* Demo Presentation Button - Always visible */}
+        <motion.button
+          onClick={onViewDemoPresentation}
+          className="group relative"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <div className="flex items-center space-x-3 px-8 py-4 glass rounded-2xl hover:bg-white/20 transition-all duration-300 border-2 border-yellow-400/50">
+            <Globe className="w-5 h-5 text-yellow-400" />
+            <span className="text-white font-semibold text-lg">Demo Presentation</span>
+            <ChevronRight className="w-4 h-4 text-yellow-400" />
+          </div>
+        </motion.button>
+
+        {/* Personal Health Journey Button - Always visible */}
+        <motion.button
+          onClick={onViewPersonalHealthJourney}
+          className="group relative"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <div className="flex items-center space-x-3 px-8 py-4 glass rounded-2xl hover:bg-white/20 transition-all duration-300 border-2 border-purple-400/50">
+            <User className="w-5 h-5 text-purple-400" />
+            <span className="text-white font-semibold text-lg">Personal Health Journey</span>
+            <ChevronRight className="w-4 h-4 text-purple-400" />
+          </div>
+        </motion.button>
       </motion.div>
 
       {/* Features and Outbreak Widget */}

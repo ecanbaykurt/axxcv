@@ -221,7 +221,9 @@ export enum AppState {
   EXPORT = 'export',
   DASHBOARD = 'dashboard',
   PATTERNS = 'patterns',
-  PROFILE = 'profile'
+  PROFILE = 'profile',
+  DEMO_PRESENTATION = 'demo_presentation',
+  PERSONAL_HEALTH_JOURNEY = 'personal_health_journey'
 }
 
 export enum RecordingState {
