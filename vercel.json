@@ -6,10 +6,10 @@
       "use": "@vercel/next"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "webapp/$1"
+      "source": "/(.*)",
+      "destination": "webapp/$1"
     }
   ],
   "headers": [
