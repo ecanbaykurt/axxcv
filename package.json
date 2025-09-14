@@ -1,12 +1,33 @@
 {
-  "name": "healthbridge-root",
-  "version": "1.0.0",
+  "name": "health-journal-webapp",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "cd webapp && npm run build",
-    "start": "cd webapp && npm start",
-    "dev": "cd webapp && npm run dev",
-    "install": "cd webapp && npm install"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export",
+    "vercel-build": "next build"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.12",
+    "is-extglob": "^2.1.1",
+    "lucide-react": "^0.544.0",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
   },
   "engines": {
     "node": ">=18.0.0"

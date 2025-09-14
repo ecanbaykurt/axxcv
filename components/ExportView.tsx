@@ -34,7 +34,7 @@ export default function ExportView({ onNavigateBack, healthEntries, currentAnaly
     
     try {
       // Create a simple text-based report
-      const report = generateHealthReport(healthEntries, currentAnalysis);
+      const report = generateHealthReport(healthEntries, currentAnalysis || null);
       
       // Create and download the file
       const blob = new Blob([report], { type: 'text/plain' });
@@ -222,13 +222,13 @@ export default function ExportView({ onNavigateBack, healthEntries, currentAnaly
           
           <div className="bg-black/20 rounded-lg p-4 max-h-64 overflow-y-auto">
             <pre className="text-white/80 text-sm whitespace-pre-wrap">
-              {generateHealthReport(healthEntries, currentAnalysis).substring(0, 500)}
-              {generateHealthReport(healthEntries, currentAnalysis).length > 500 && '...'}
+              {generateHealthReport(healthEntries, currentAnalysis || null).substring(0, 500)}
+              {generateHealthReport(healthEntries, currentAnalysis || null).length > 500 && '...'}
             </pre>
           </div>
           
           <p className="text-white/50 text-xs mt-2">
-            {generateHealthReport(healthEntries, currentAnalysis).length} characters total
+            {generateHealthReport(healthEntries, currentAnalysis || null).length} characters total
           </p>
         </motion.div>
 

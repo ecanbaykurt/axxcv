@@ -1,18 +1,12 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "webapp/package.json",
-      "use": "@vercel/next",
-      "config": {
-        "distDir": ".next"
-      }
+  "framework": "nextjs",
+  "functions": {
+    "app/api/**/*.ts": {
+      "runtime": "nodejs18.x"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "webapp/$1"
-    }
-  ]
+  },
+  "env": {
+    "OPENAI_API_KEY": "@openai_api_key"
+  }
 }

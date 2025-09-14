@@ -35,9 +35,9 @@ interface HealthStats {
   averageSeverity: number;
   moodTrend: number;
   mostCommonSymptoms: Array<{ symptom: string; count: number }>;
-  severityDistribution: Array<{ level: string; count: number }>;
+  severityDistribution: Array<{ level: string; count: number; color: string }>;
   monthlyTrends: Array<{ month: string; entries: number; avgSeverity: number }>;
-  triageDistribution: Array<{ level: string; count: number }>;
+  triageDistribution: Array<{ level: string; count: number; color: string }>;
 }
 
 export default function ProfileView({ onNavigateBack, healthEntries }: ProfileViewProps) {

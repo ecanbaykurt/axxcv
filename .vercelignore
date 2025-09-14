@@ -1,12 +1,8 @@
 # Dependencies
-node_modules/
+node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Production build
-.next/
-out/
 
 # Environment variables
 .env
@@ -16,8 +12,8 @@ out/
 .env.production.local
 
 # IDE
-.vscode/
-.idea/
+.vscode
+.idea
 *.swp
 *.swo
 
@@ -36,7 +32,7 @@ pids
 *.pid.lock
 
 # Coverage directory used by tools like istanbul
-coverage/
+coverage
 
 # nyc test coverage
 .nyc_output
@@ -88,7 +84,20 @@ jspm_packages/
 tmp/
 temp/
 
+# Backup files
+*.backup
+*.bak
+
 # Documentation
 README.md
 DEPLOYMENT.md
 VERCEL_DEPLOYMENT.md
+MOCK_DATA_DEMO.md
+PROFILE_FEATURES.md
+
+# Git
+.git
+.gitignore
+
+# Webapp folder (duplicate)
+webapp/
