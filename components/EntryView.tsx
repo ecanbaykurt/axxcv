@@ -34,6 +34,11 @@ export default function EntryView({ onNavigateBack, onAnalyzeComplete, onAddEntr
   const [error, setError] = useState<string | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
   
+  // Medical tracking states
+  const [painScale, setPainScale] = useState(0);
+  const [mood, setMood] = useState<number | null>(null);
+  const [symptomLocation, setSymptomLocation] = useState('');
+  
   // Image upload states
   const [uploadedImages, setUploadedImages] = useState<HealthImage[]>([]);
   const [isAnalyzingImages, setIsAnalyzingImages] = useState(false);
@@ -313,6 +318,87 @@ export default function EntryView({ onNavigateBack, onAnalyzeComplete, onAddEntr
           <p className="text-white/70">
             Tell us about your symptoms so we can help organize your health information
           </p>
+        </motion.div>
+
+        {/* Pain Scale */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isAnimating ? 1 : 0, y: isAnimating ? 0 : 20 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <label className="block text-lg font-semibold text-white mb-3">
+            Pain Level (0-5 Scale)
+          </label>
+          <div className="glass rounded-2xl p-6">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-white/70 text-sm">No Pain</span>
+              <span className="text-white/70 text-sm">Severe Pain</span>
+            </div>
+            <div className="flex space-x-2">
+              {[0, 1, 2, 3, 4, 5].map((level) => (
+                <button
+                  key={level}
+                  onClick={() => setPainScale(level)}
+                  className={`w-12 h-12 rounded-full border-2 transition-all duration-200 ${
+                    painScale === level
+                      ? 'bg-red-500 border-red-400 text-white'
+                      : 'border-white/30 text-white/70 hover:border-white/50'
+                  }`}
+                  disabled={isProcessing}
+                >
+                  {level}
+                </button>
+              ))}
+            </div>
+            <div className="mt-3 text-center">
+              <span className="text-white/70 text-sm">
+                {painScale === 0 && 'No pain'}
+                {painScale === 1 && 'Mild pain'}
+                {painScale === 2 && 'Moderate pain'}
+                {painScale === 3 && 'Moderate-severe pain'}
+                {painScale === 4 && 'Severe pain'}
+                {painScale === 5 && 'Unbearable pain'}
+              </span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Mood Selector */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isAnimating ? 1 : 0, y: isAnimating ? 0 : 20 }}
+          transition={{ duration: 0.8, delay: 0.35 }}
+        >
+          <label className="block text-lg font-semibold text-white mb-3">
+            How are you feeling? (Optional)
+          </label>
+          <div className="glass rounded-2xl p-6">
+            <div className="flex justify-center space-x-4">
+              {[
+                { emoji: '😢', value: 1, label: 'Very Poor' },
+                { emoji: '😕', value: 2, label: 'Poor' },
+                { emoji: '😐', value: 3, label: 'Neutral' },
+                { emoji: '🙂', value: 4, label: 'Good' },
+                { emoji: '😊', value: 5, label: 'Very Good' }
+              ].map((moodOption) => (
+                <button
+                  key={moodOption.value}
+                  onClick={() => setMood(moodOption.value)}
+                  className={`flex flex-col items-center space-y-2 p-3 rounded-xl transition-all duration-200 ${
+                    mood === moodOption.value
+                      ? 'bg-blue-500/30 border-2 border-blue-400'
+                      : 'hover:bg-white/10 border-2 border-transparent'
+                  }`}
+                  disabled={isProcessing}
+                >
+                  <span className="text-2xl">{moodOption.emoji}</span>
+                  <span className="text-white/70 text-xs">{moodOption.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         {/* Text Input */}

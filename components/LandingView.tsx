@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Mic, Brain, FileText, ChevronRight, BarChart3, Camera, Globe, Languages } from 'lucide-react';
+import OutbreakWidget from './OutbreakWidget';
 
 interface LandingViewProps {
   onStartEntry: () => void;
@@ -102,7 +103,7 @@ export default function LandingView({ onStartEntry, onViewDashboard, hasEntries,
           animate={{ opacity: isAnimating ? 1 : 0, y: isAnimating ? 0 : 20 }}
           transition={{ duration: 0.8, delay: 0.9 }}
         >
-          AI-powered symptom tracking with multi-language support, voice input, and intelligent analysis for global healthcare access
+          Your AI Health Companion — Accurate, Multilingual, Private. Break down language barriers between patients and doctors with intelligent symptom analysis.
         </motion.p>
         
         {/* Multilingual Mode Toggle */}
@@ -169,30 +170,38 @@ export default function LandingView({ onStartEntry, onViewDashboard, hasEntries,
         )}
       </motion.div>
 
-      {/* Features */}
+      {/* Features and Outbreak Widget */}
       <motion.div
         className="w-full max-w-6xl mb-16"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: isAnimating ? 1 : 0, y: isAnimating ? 0 : 20 }}
         transition={{ duration: 0.8, delay: 1.3 }}
       >
-        <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              className="glass rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isAnimating ? 1 : 0, y: isAnimating ? 0 : 20 }}
-              transition={{ duration: 0.6, delay: 1.5 + index * 0.1 }}
-              whileHover={{ y: -4 }}
-            >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500/20 to-teal-500/20 flex items-center justify-center">
-                <feature.icon className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-              <p className="text-white/70 text-sm">{feature.description}</p>
-            </motion.div>
-          ))}
+        <div className="grid lg:grid-cols-4 gap-6">
+          {/* Features Grid */}
+          <div className="lg:col-span-3 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                className="glass rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: isAnimating ? 1 : 0, y: isAnimating ? 0 : 20 }}
+                transition={{ duration: 0.6, delay: 1.5 + index * 0.1 }}
+                whileHover={{ y: -4 }}
+              >
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500/20 to-teal-500/20 flex items-center justify-center">
+                  <feature.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
+                <p className="text-white/70 text-sm">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Outbreak Widget */}
+          <div className="lg:col-span-1">
+            <OutbreakWidget />
+          </div>
         </div>
       </motion.div>
 

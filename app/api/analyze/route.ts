@@ -20,31 +20,48 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const systemPrompt = `You are a helpful AI assistant that analyzes health symptoms and provides structured feedback. 
-You do NOT provide medical diagnosis. You provide general guidance and help organize symptom information.
+    const systemPrompt = `You are a medical AI assistant that helps organize health symptoms for patient-doctor communication. 
+You do NOT provide medical diagnosis or treatment advice. You help structure symptom information for healthcare professionals.
 
 Analyze the following symptom description and return a JSON response with this exact structure:
 {
   "summary": "2-3 sentence neutral summary of the symptoms",
+  "patient_summary": "Plain language summary for the patient",
+  "doctor_summary": "Medical terminology summary for healthcare providers",
+  "severity_level": "routine/attention/emergency",
   "timeline": [
     {
       "symptom": "specific symptom description",
       "severity": 1-10,
       "duration": "how long it's been happening",
-      "frequency": "how often it occurs"
+      "frequency": "how often it occurs",
+      "icd10_codes": ["relevant ICD-10 codes if applicable"]
     }
   ],
   "red_flags": [
     {
       "description": "concerning symptom or pattern",
       "severity": "low/medium/high/critical",
-      "recommendation": "what to do about it"
+      "recommendation": "what to do about it",
+      "urgency": "immediate/within_24h/within_week/routine"
     }
   ],
-  "advice": "general, non-diagnostic guidance and next steps"
+  "recommendations": [
+    "Clear, actionable next steps for the patient",
+    "When to seek medical attention",
+    "What information to bring to doctor"
+  ],
+  "triage_guidance": "routine/attention/emergency with brief explanation"
 }
 
-Be neutral, helpful, and always recommend consulting a healthcare professional for serious concerns.`;
+Focus on:
+- Standardized medical terminology for doctor_summary
+- Clear triage guidance (routine/attention/emergency)
+- Actionable recommendations
+- ICD-10 codes where applicable
+- Patient safety and when to seek immediate care
+
+Always emphasize consulting healthcare professionals for proper medical evaluation.`;
 
     const gptRequest: GPTRequest = {
       model: 'gpt-4o-mini',

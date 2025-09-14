@@ -17,9 +17,14 @@ export interface HealthEntry {
 // AI Response Models
 export interface AIHealthResponse {
   summary: string;
+  patient_summary?: string;
+  doctor_summary?: string;
+  severity_level?: 'routine' | 'attention' | 'emergency';
   timeline: SymptomTimeline[];
   redFlags: RedFlag[];
   advice: string;
+  recommendations?: string[];
+  triage_guidance?: string;
 }
 
 export interface SymptomTimeline {
@@ -28,6 +33,7 @@ export interface SymptomTimeline {
   severity: number; // 1-10 scale
   duration: string;
   frequency: string;
+  icd10_codes?: string[];
 }
 
 export interface RedFlag {
@@ -35,6 +41,7 @@ export interface RedFlag {
   description: string;
   severity: RedFlagSeverity;
   recommendation: string;
+  urgency?: 'immediate' | 'within_24h' | 'within_week' | 'routine';
 }
 
 export enum RedFlagSeverity {
