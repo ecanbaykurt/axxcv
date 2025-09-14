@@ -10,7 +10,7 @@ out/
 build/
 dist/
 
-# Environment variables
+# Environment variables (will be set in Vercel dashboard)
 .env
 .env.local
 .env.development.local
@@ -62,11 +62,3 @@ jspm_packages/
 # Health Journal specific
 health-entries.json
 *.health-data
-
-# Vercel
-.vercel
-
-# iOS specific (if any)
-*.ipa
-*.dSYM.zip
-*.dSYM
