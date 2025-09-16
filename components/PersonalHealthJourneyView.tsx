@@ -156,6 +156,46 @@ const PersonalHealthJourneyView = ({ onNavigateBack }: { onNavigateBack: () => v
           healthScore: 48,
           patternsDiscovered: ['Morning glucose elevation'],
           personalAchievements: ['3-day tracking streak', 'First pattern identified'],
+          dashboardData: {
+            totalEntries: 3,
+            recentEntries: 3,
+            healthScore: 48,
+            insights: [
+              'Morning glucose levels consistently elevated',
+              'Meal tracking shows promise for pattern identification',
+              'Consistent data entry - great start!'
+            ],
+            charts: [
+              { type: 'line', title: 'Glucose Trends', data: '3-day glucose progression chart' }
+            ],
+            trends: [
+              'Morning glucose trending upward',
+              'Data consistency improving',
+              'Meal tracking engagement high'
+            ]
+          },
+          profileStats: {
+            totalEntries: 3,
+            averageSeverity: 5,
+            moodTrend: 2,
+            mostCommonSymptoms: [
+              { symptom: 'High blood sugar', count: 3 },
+              { symptom: 'Morning fatigue', count: 2 }
+            ],
+            severityDistribution: [
+              { level: 'Moderate', count: 2, color: '#f59e0b' },
+              { level: 'High', count: 1, color: '#ef4444' }
+            ],
+            monthlyTrends: [
+              { month: 'Day 1-3', entries: 3, avgSeverity: 5 }
+            ]
+          },
+          patternAnalysis: {
+            patterns: ['Morning glucose elevation pattern emerging'],
+            correlations: [],
+            predictions: [],
+            trends: ['Glucose levels trending upward in morning hours']
+          },
           doctorReport: {
             patientName: 'Sarah Johnson',
             day: 3,
@@ -175,6 +215,63 @@ const PersonalHealthJourneyView = ({ onNavigateBack }: { onNavigateBack: () => v
           healthScore: 55,
           patternsDiscovered: ['Morning glucose elevation', 'Exercise glucose reduction', 'Late dinner correlation'],
           personalAchievements: ['1-week tracking streak', 'Discovered exercise benefit', 'Identified meal timing issue'],
+          dashboardData: {
+            totalEntries: 7,
+            recentEntries: 7,
+            healthScore: 55,
+            insights: [
+              'Exercise shows consistent glucose reduction benefits',
+              'Late dinner pattern clearly identified',
+              'Weekly tracking streak maintained - excellent!'
+            ],
+            charts: [
+              { type: 'line', title: 'Glucose Trends', data: '7-day glucose progression with exercise markers' },
+              { type: 'bar', title: 'Exercise Impact', data: 'Pre/post exercise glucose comparison' }
+            ],
+            trends: [
+              'Exercise consistently reduces glucose by 15-20%',
+              'Late dinners (>8 PM) cause 40+ mg/dL spikes',
+              'Morning glucose stabilizing with routine'
+            ]
+          },
+          profileStats: {
+            totalEntries: 7,
+            averageSeverity: 4,
+            moodTrend: 5,
+            mostCommonSymptoms: [
+              { symptom: 'High blood sugar', count: 5 },
+              { symptom: 'Morning fatigue', count: 4 },
+              { symptom: 'Post-meal spikes', count: 3 }
+            ],
+            severityDistribution: [
+              { level: 'Low', count: 2, color: '#10b981' },
+              { level: 'Moderate', count: 4, color: '#f59e0b' },
+              { level: 'High', count: 1, color: '#ef4444' }
+            ],
+            monthlyTrends: [
+              { month: 'Week 1', entries: 7, avgSeverity: 4 }
+            ]
+          },
+          patternAnalysis: {
+            patterns: [
+              'Morning glucose elevation pattern confirmed',
+              'Exercise glucose reduction pattern (15-20% decrease)',
+              'Late dinner correlation with glucose spikes'
+            ],
+            correlations: [
+              'Exercise frequency ↔ Glucose control (r=0.72)',
+              'Meal timing ↔ Post-meal glucose (r=0.68)'
+            ],
+            predictions: [
+              'High risk of glucose spike if dinner after 8 PM',
+              'Exercise session recommended after large meals'
+            ],
+            trends: [
+              'Glucose levels showing improvement with exercise',
+              'Meal timing patterns becoming clearer',
+              'Overall health score trending upward'
+            ]
+          },
           doctorReport: {
             patientName: 'Sarah Johnson',
             day: 7,
@@ -194,6 +291,72 @@ const PersonalHealthJourneyView = ({ onNavigateBack }: { onNavigateBack: () => v
           healthScore: 65,
           patternsDiscovered: ['Morning glucose elevation', 'Exercise glucose reduction', 'Late dinner correlation', 'Stress-glucose correlation', 'Meal timing optimization'],
           personalAchievements: ['2-week tracking streak', 'Discovered stress connection', 'Improved meal timing', 'Lost 3 pounds'],
+          dashboardData: {
+            totalEntries: 14,
+            recentEntries: 7,
+            healthScore: 65,
+            insights: [
+              'Stress-glucose correlation clearly identified',
+              'Meal timing optimization showing significant results',
+              'Two-week tracking streak - outstanding commitment!'
+            ],
+            charts: [
+              { type: 'line', title: 'Glucose Trends', data: '14-day glucose progression with stress markers' },
+              { type: 'bar', title: 'Exercise Impact', data: 'Exercise frequency vs glucose control correlation' },
+              { type: 'pie', title: 'Meal Timing Distribution', data: 'Optimal vs suboptimal meal timing breakdown' }
+            ],
+            trends: [
+              'Stress levels directly correlate with glucose spikes',
+              'Regular meal timing reduces variability by 30%',
+              'Post-meal walking consistently effective'
+            ]
+          },
+          profileStats: {
+            totalEntries: 14,
+            averageSeverity: 3,
+            moodTrend: 8,
+            mostCommonSymptoms: [
+              { symptom: 'High blood sugar', count: 8 },
+              { symptom: 'Morning fatigue', count: 6 },
+              { symptom: 'Post-meal spikes', count: 5 },
+              { symptom: 'Stress-related spikes', count: 4 }
+            ],
+            severityDistribution: [
+              { level: 'Low', count: 6, color: '#10b981' },
+              { level: 'Moderate', count: 6, color: '#f59e0b' },
+              { level: 'High', count: 2, color: '#ef4444' }
+            ],
+            monthlyTrends: [
+              { month: 'Week 1', entries: 7, avgSeverity: 4 },
+              { month: 'Week 2', entries: 7, avgSeverity: 3 }
+            ]
+          },
+          patternAnalysis: {
+            patterns: [
+              'Morning glucose elevation pattern confirmed',
+              'Exercise glucose reduction pattern (15-20% decrease)',
+              'Late dinner correlation with glucose spikes',
+              'Stress-glucose correlation identified (r=0.75)',
+              'Meal timing optimization pattern emerging'
+            ],
+            correlations: [
+              'Exercise frequency ↔ Glucose control (r=0.78)',
+              'Meal timing ↔ Post-meal glucose (r=0.72)',
+              'Stress level ↔ Glucose spikes (r=0.75)',
+              'Weight loss ↔ Overall glucose control (r=0.65)'
+            ],
+            predictions: [
+              'High risk of glucose spike during stressful periods',
+              'Exercise session recommended after large meals',
+              'Optimal meal timing: 6-7 PM for best control'
+            ],
+            trends: [
+              'Glucose levels showing steady improvement',
+              'Stress management becoming crucial factor',
+              'Meal timing patterns highly predictive',
+              'Overall health score trending upward consistently'
+            ]
+          },
           doctorReport: {
             patientName: 'Sarah Johnson',
             day: 14,
@@ -213,6 +376,82 @@ const PersonalHealthJourneyView = ({ onNavigateBack }: { onNavigateBack: () => v
           healthScore: 75,
           patternsDiscovered: ['Morning glucose elevation', 'Exercise glucose reduction', 'Late dinner correlation', 'Stress-glucose correlation', 'Meal timing optimization', 'Sleep-glucose correlation', 'Hydration effect'],
           personalAchievements: ['3-week tracking streak', 'Can predict glucose patterns', 'Improved sleep quality', 'Lost 5 pounds', 'Better hydration habits'],
+          dashboardData: {
+            totalEntries: 21,
+            recentEntries: 7,
+            healthScore: 75,
+            insights: [
+              'Predictive pattern recognition achieved - remarkable progress!',
+              'Sleep quality correlation clearly documented',
+              'Hydration benefits showing measurable impact'
+            ],
+            charts: [
+              { type: 'line', title: 'Glucose Trends', data: '21-day glucose progression with sleep quality markers' },
+              { type: 'bar', title: 'Exercise Impact', data: 'Exercise frequency vs glucose control correlation' },
+              { type: 'pie', title: 'Meal Timing Distribution', data: 'Optimal vs suboptimal meal timing breakdown' },
+              { type: 'line', title: 'Sleep Quality Impact', data: 'Sleep quality vs morning glucose correlation' }
+            ],
+            trends: [
+              'Sleep quality directly impacts morning glucose readings',
+              'Hydration levels correlate with glucose stability',
+              'Predictive accuracy improving significantly'
+            ]
+          },
+          profileStats: {
+            totalEntries: 21,
+            averageSeverity: 2,
+            moodTrend: 12,
+            mostCommonSymptoms: [
+              { symptom: 'High blood sugar', count: 10 },
+              { symptom: 'Morning fatigue', count: 7 },
+              { symptom: 'Post-meal spikes', count: 6 },
+              { symptom: 'Stress-related spikes', count: 5 },
+              { symptom: 'Sleep-related glucose', count: 4 }
+            ],
+            severityDistribution: [
+              { level: 'Low', count: 12, color: '#10b981' },
+              { level: 'Moderate', count: 7, color: '#f59e0b' },
+              { level: 'High', count: 2, color: '#ef4444' }
+            ],
+            monthlyTrends: [
+              { month: 'Week 1', entries: 7, avgSeverity: 4 },
+              { month: 'Week 2', entries: 7, avgSeverity: 3 },
+              { month: 'Week 3', entries: 7, avgSeverity: 2 }
+            ]
+          },
+          patternAnalysis: {
+            patterns: [
+              'Morning glucose elevation pattern confirmed',
+              'Exercise glucose reduction pattern (15-20% decrease)',
+              'Late dinner correlation with glucose spikes',
+              'Stress-glucose correlation identified (r=0.75)',
+              'Meal timing optimization pattern confirmed',
+              'Sleep quality ↔ Morning glucose correlation (r=0.68)',
+              'Hydration ↔ Glucose stability correlation (r=0.55)'
+            ],
+            correlations: [
+              'Exercise frequency ↔ Glucose control (r=0.82)',
+              'Meal timing ↔ Post-meal glucose (r=0.78)',
+              'Stress level ↔ Glucose spikes (r=0.75)',
+              'Weight loss ↔ Overall glucose control (r=0.72)',
+              'Sleep quality ↔ Morning glucose (r=0.68)',
+              'Hydration ↔ Glucose stability (r=0.55)'
+            ],
+            predictions: [
+              'High risk of glucose spike during stressful periods',
+              'Exercise session recommended after large meals',
+              'Optimal meal timing: 6-7 PM for best control',
+              'Poor sleep quality predicts morning hyperglycemia',
+              'Dehydration increases glucose variability'
+            ],
+            trends: [
+              'Glucose levels showing consistent improvement',
+              'Predictive accuracy reaching 85%',
+              'Sleep optimization becoming key factor',
+              'Hydration habits showing measurable benefits',
+              'Overall health score trending upward consistently'
+            ]
+          },
           doctorReport: {
             patientName: 'Sarah Johnson',
             day: 21,
